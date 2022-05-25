@@ -1,13 +1,23 @@
 .nav {
     grid-area: n;
     background-color: rgb(24, 161, 6);
+    padding: 20px;
   }
-  
 
-  .item { 
+.item {
+    margin: 10px 50px;
+}
+
+  .item a {
+      text-decoration: none;
     color: white;
+  }
+
+  .item a:hover {
+      color: black;
   }
 
   .item.active {  
     color: rgb(0, 26, 255);
   }
+
