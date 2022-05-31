@@ -6,7 +6,7 @@ const DialogItem = (props) => {
     let path = "/dialogs/" + props.id;
     return (
         <div className={s.dialog}>
-            <NavLink to={path} > {props.name} </NavLink>
+            <NavLink to={path}> {props.name} </NavLink>
         </div>
     )
 }
@@ -16,20 +16,34 @@ const Message = (props) => {
 }
 
 const Dialogs = () => {
+    let dialogsData = [
+        {id: 1, name: "Dmitry"},
+        {id: 2, name: "Anna"},
+        {id: 3, name: "Kiryll"},
+        {id: 4, name: "Andrey"},
+        {id: 5, name: "Sveta"},
+        {id: 6, name: "Sasha"}
+    ]
+
+    let messagesData = [
+        {id: 1, message: "Hi"},
+        {id: 2, message: "My friend"},
+        {id: 3, message: "Yo"}
+    ]
+
+    let dialogsElements = dialogsData
+        .map((dialog) => <DialogItem name={dialog.name} id={dialog.id}/>)
+
+    let messagesElements = messagesData
+        .map((message) => <Message message={message.message} id={message.id}/>)
+
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItem}>
-                <DialogItem name="Dmitry" id="1" />
-                <DialogItem name="Anna" id="2" />
-                <DialogItem name="Kiryll" id="3" />
-                <DialogItem name="Andrey" id="4" />
-                <DialogItem name="Sveta" id="5" />
-                <DialogItem name="Sasha" id="6" />
+                {dialogsElements}
             </div>
             <div className={s.messages}>
-                <Message message = "Hi"/>
-                <Message message = "My friend"/>
-                <Message message = "Yo"/>
+                {messagesElements}
             </div>
         </div>
     )
