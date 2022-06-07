@@ -3,15 +3,9 @@ import s from './MyPosts.module.css';
 import Post from './Posts/Post';
 
 
-const MyPosts = () => {
+const MyPosts = (props) => {
 
-
-    let postsData = [
-        {id: 1, message: "hi, friends", likesCount: 12},
-        {id: 2, message: "hi, world", likesCount: 11}
-    ]
-
-    let postsElement = postsData
+    let postsElement = props.posts
         .map((post) => <Post message={post.message} id={post.id} likesCount={post.likesCount}/>)
 
     return (
